@@ -1,4 +1,4 @@
-
+<img src="site-logo.svg>"
 
 # Kaggle Playground Competition: Regression with a Mohs Hardness Dataset
 
