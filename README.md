@@ -61,7 +61,7 @@ The best-performing model will be submitted to the Kaggle competition for evalua
 
 ### Competition end
 
-I placed 1370 out of 1633 (bottom 20& percentile). I will take my score as motivation to improve and I hope to do better in the upcoming competitons
+I placed 1370 out of 1633 (bottom 20% percentile). I will take my score as motivation to improve and I hope to do better in the upcoming competitons
 
 ## Acknowledgments
 
