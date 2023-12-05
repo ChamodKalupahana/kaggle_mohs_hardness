@@ -15,50 +15,51 @@ The dataset (train.csv) is loaded into a Pandas DataFrame to understand its stru
     filepath = "/kaggle/input/playground-series-s3e25/train.csv"
     dataset = pd.read_csv(filepath)
     dataset.info()
+
+### Preparation
+
+The target variable, 'Hardness,' is separated from the input features. The dataset is then normalized to ensure consistent scales for training.
+
+    test_dataset = pd.read_csv("/kaggle/input/playground-series-s3e25/test.csv")
+
+    # Normalizing test dataset
+    for column in test_dataset:
+        if column != 'id':
+            test_dataset[column] = test_dataset[column] / max(test_dataset[column])
+
+    # Making predictions
+    predictions = model.predict(test_dataset)
+
 ## Experimentation
 
-I've implemented and tested several dense neural network architectures to find the most effective model for the given task. Each experiment is organized into its own Jupyter Notebook for clarity. The following architectures have been explored:
+I've implemented and tested several neural network architectures to find the most effective model for the given task. Each experiment is organized into its own Jupyter Notebook for clarity. The following architectures have been explored:
 
 1. **DNN Model 1: Basic Dense Layers**
     - Architecture: 
 
-    <img src="Arch\RNN model arch.png" width=300>
-    
-    - Results: [include key metrics and insights]
+    <img src="Arch\DNN model arch.png" width=300>
+
+    - Results: Performed 2nd best, best score = 1.0035
 
 2. **DNN Model 2: Skip connections**
-    - Architecture: [describe the architecture with dropout layers]
-    - Results: [include key metrics and insights]
+    - Architecture: 
 
-3. **RNN Model: Fine-tuning Hyperparameters**
-    - Architecture: [describe the architecture with optimized hyperparameters]
-    - Results: [include key metrics and insights]
+    <img src="Arch\DNN skip connection model arch.png" width=200>
+
+    - Results: Performed worst, best score = 1.0022
+
+3. **RNN Model: LSTM layers**
+    - Architecture: 
+    
+    <img src="Arch\RNN model arch.png" width=200>
+    
+    - Results: Performed best, best score = 0.7128
 
 ## Submission
 
 The best-performing model will be submitted to the Kaggle competition for evaluation. Results and leaderboard rankings will be updated accordingly.
 
-## Getting Started
 
-1. Clone this repository:
-
-    ```bash
-    git clone https://github.com/your-username/kaggle-neural-network-experiments.git
-    ```
-
-2. Navigate to the project directory:
-
-    ```bash
-    cd kaggle-neural-network-experiments
-    ```
-
-3. Install the required dependencies:
-
-    ```bash
-    pip install -r requirements.txt
-    ```
-
-4. Explore the Jupyter Notebooks in the `notebooks` directory to review the experiments.
 
 ## Acknowledgments
 
